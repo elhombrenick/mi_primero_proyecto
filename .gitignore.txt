@@ -1,0 +1,16 @@
+# Archivos compilados
+/target/
+.classpath
+.project
+.settings
+
+# Archivos de logs
+*.log
+
+# Archivos de configuración de IDEs
+.idea/
+*.iml
+*.iws
+
+# Otros
+.DS_Store

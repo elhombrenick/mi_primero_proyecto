@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"></head>
+<body>
+  
+  <nav class="navbar navbar-light bg-light mb-3" th:fragment="menu">
+    <div class="container-fluid">
+      <a class="navbar-brand" th:href="@{/home}">Inicio</a>
+      <div class="d-flex align-items-center">
+        <span class="me-3" th:if="${nombreCliente != null}" th:text="'Hola, ' + ${nombreCliente}">Hola</span>
+
+        <a class="btn btn-outline-secondary btn-sm me-2" th:href="@{/publico/vuelos/buscar}">Buscar Vuelos</a>
+        <a class="btn btn-outline-secondary btn-sm me-2" th:if="${idCliente != null}" th:href="@{/publico/reservas/listar}">Mis Reservas</a>
+        <a class="btn btn-outline-secondary btn-sm me-2" th:if="${idCliente != null}" th:href="@{/publico/ventas/listar}">Mis Compras</a>
+
+        <a class="btn btn-primary btn-sm" th:if="${idCliente == null}" th:href="@{/publico/login}">Ingresar</a>
+        <form th:if="${idCliente != null}" th:action="@{/publico/logout}" method="post" class="ms-2">
+          <button class="btn btn-outline-danger btn-sm">Cerrar sesion</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</body>
+</html>
